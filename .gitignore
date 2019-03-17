@@ -1,0 +1,5 @@
+**/*.swp
+**/*.log
+.byebug_history
+dev.rb
+
