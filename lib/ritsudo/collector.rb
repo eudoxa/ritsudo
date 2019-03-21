@@ -5,13 +5,13 @@ module Ritsudo
     def initialize(documents: Ritsudo::Result::Documents.new,
                    xhrs:      Ritsudo::Result::Xhrs.new,
                    scripts:   Ritsudo::Result::Scripts.new,
-                   misc:   Ritsudo::Result::Misc.new,
-                   match: nil)
+                   misc:      Ritsudo::Result::Misc.new,
+                   match:     nil)
       @documents = documents
       @xhrs      = xhrs
       @scripts   = scripts
-      @misc = misc
-      @match = match
+      @misc      = misc
+      @match     = match
     end
 
     def add(_requests)
@@ -25,8 +25,8 @@ module Ritsudo
 
       types = requests.group_by(&:type)
       documents.add_multiple(types["Document"]) if types["Document"]
-      xhrs.add_multiple(types["XHR"]) if types["XHR"]
-      scripts.add_multiple(types["Script"]) if types["Script"]
+      xhrs.add_multiple(types["XHR"])           if types["XHR"]
+      scripts.add_multiple(types["Script"])     if types["Script"]
     end
 
     def add_misc(group, name, value)

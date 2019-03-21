@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8 ff=unix ft=ruby ts=4 sw=2 sts=2 si et :
+
+require "bundler/setup"
+require "ritsudo"
+require 'thor'
+
+class RitsudoCli < Thor
+  default_command :benchmark
+  option :url, required: true
+  option :c, default: 5, type: :numeric
+  option :sub_process_timeout, default: 5, type: :numeric
+  option :timeout, default: 10, type: :numeric
+  option :wait_time, default: 1, type: :numeric
+  option :ua, type: :string
+  option :match, type: :string
+  desc "benchmark URL", "say hello to NAME"
+  def benchmark()
+    match = options[:match] ? Regexp.new(options[:match]) : nil
+    collector =  Ritsudo::Collector.new(match: match)
+    benchmark = Ritsudo::Benchmark.new(collector: collector)
+    benchmark.do(options[:url],
+                 count: options[:c],
+                 sub_process_timeout: options[:sub_process_timeout],
+                 driver_options: {
+                   timeout: options[:timeout],
+                   wait_time: options[:wait_time],
+                   user_agent: options[:ua]
+                 }
+                )
+    benchmark.collector.report
+  end
+end
+
+RitsudoCli.start(ARGV)

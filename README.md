@@ -20,6 +20,11 @@ Or install it yourself as:
     $ gem install ritsudo
 
 ## Usage
+```
+bundle exec bin/ritsudo_cli --url=https://example.com --match="example.com" --ua="Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
+```
+
+
 ```ruby
 #!/usr/bin/env ruby
 require "bundler/setup"

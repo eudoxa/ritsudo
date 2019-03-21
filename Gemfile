@@ -7,3 +7,4 @@ gemspec
 
 gem 'selenium-webdriver'
 gem 'formatador'
+gem 'thor'
