@@ -73,7 +73,7 @@ ritsudo -a https://example.com/page -m "example.com" -C "hoge=fuga"
 
 #### Problem
 Headless chrome doesn't support to set cookies before access.
-So, Ritsudo access root path(e.g https://example.com") before benchmark.
+So, Ritsudo accesses root path(e.g https://example.com) before each benchmark.
 
 ## License
 
