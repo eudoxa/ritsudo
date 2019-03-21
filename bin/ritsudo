@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8 ff=unix ft=ruby ts=4 sw=2 sts=2 si et :
+
+require 'ritsudo/cli'
+Ritsudo::Cli.start(ARGV)

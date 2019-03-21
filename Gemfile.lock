@@ -2,6 +2,9 @@ PATH
   remote: .
   specs:
     ritsudo (0.1.0)
+      formatador
+      selenium-webdriver
+      thor
 
 GEM
   remote: https://rubygems.org/

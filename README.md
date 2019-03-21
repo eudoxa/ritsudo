@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 ```
-bundle exec bin/ritsudo_cli --url=https://example.com --match="example.com" --ua="Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
+bundle exec bin/ritsudo --url=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
 ```
 
 
