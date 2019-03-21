@@ -5,8 +5,6 @@ Also measure ajax requests.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 install it yourself as:
 
     $ gem install ritsudo
