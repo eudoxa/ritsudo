@@ -65,6 +65,16 @@ Ritsudo requests 5 times: https://example.com
   | https//example.com/example.js  | 25.88 | 43.15 | 14.96 | 5     | 0           |
   +--------------------------------+-------+-------+-------+-------+-------------+
 ```
+
+### Set Cookies
+```
+ritsudo -a https://example.com/page -m "example.com" -C "hoge=fuga"
+```
+
+#### Problem
+Headless chrome doesn't support to set cookies before access.
+So, Ritsudo access root path(e.g https://example.com") before benchmark.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

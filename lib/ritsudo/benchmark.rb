@@ -5,15 +5,20 @@ module Ritsudo
       @collector = collector
     end
 
-    def do(url, count: 5, wait: 1, sub_process_timeout: 3, 
-                driver_options: {
-                   timeout: 5,
-                   wait_time: 1
-                })
+    def do(url, count: 5, wait: 1, sub_process_timeout: 3, driver_options: {})
+      if driver_options[:cookies]
+        puts <<-EOS 
+WARNING: headless chrome can not set cookie before access. Ritsudo accesses root path before requested path for set cookies.
+
+        EOS
+      end
+
+      default_driver_options = { timeout: 5, wait_time: 1 }
       puts "Ritsudo requests #{count} times: #{url}"
       count.times do
         print(".")
-        collect(url, wait: wait, sub_process_timeout: sub_process_timeout, driver_options: driver_options)
+        collect(url, wait: wait, sub_process_timeout: sub_process_timeout,
+                driver_options: default_driver_options.merge(driver_options))
       end
       puts ""
     end

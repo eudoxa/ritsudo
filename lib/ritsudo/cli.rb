@@ -5,6 +5,7 @@ module Ritsudo
     default_command :benchmark
     option :url, required: true, aliases: ['-a']
     option :count, default: 5, type: :numeric, aliases: ['-c']
+    option :cookies, type: :string, aliases: ['-C']
     option :sub_process_timeout, default: 5, type: :numeric, aliases: ['-s']
     option :timeout, default: 10, type: :numeric, aliases: ['-t']
     option :wait_time, default: 1, type: :numeric, aliases: ['-w']
@@ -21,7 +22,8 @@ module Ritsudo
                    driver_options: {
                      timeout: options[:timeout],
                      wait_time: options[:wait_time],
-                     user_agent: options[:ua]
+                     user_agent: options[:ua],
+                     cookies: options[:cookies]
                    }
                   )
       benchmark.collector.report
