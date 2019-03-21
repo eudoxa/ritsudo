@@ -2,4 +2,5 @@
 **/*.log
 .byebug_history
 dev.rb
+Gemfile.lock
 
