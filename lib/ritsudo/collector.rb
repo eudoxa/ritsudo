@@ -35,9 +35,13 @@ module Ritsudo
 
     def report
       @misc.report
+      puts ""
       @documents.report
+      puts ""
       @xhrs.report
+      puts ""
       @scripts.report
+      puts ""
     end
   end
 end
