@@ -12,7 +12,7 @@ install it yourself as:
 ## Usage
 ### CLI
 ```
-ritsudo -a=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
+ritsudo -a https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"
 ```
 
 ### Ruby
@@ -21,13 +21,10 @@ ritsudo -a=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPh
 require "bundler/setup"
 require "ritsudo"
 
-ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
+ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"
 collector = Ritsudo::Collector.new(match: /example\.com/)
 benchmark = Ritsudo::Benchmark.new(collector: collector)
-benchmark.do("http:/www.example.com", driver_options: {
-              user_agent: ua
-             })
-
+benchmark.do("http:/www.example.com", driver_options: { user_agent: ua })
 benchmark.collector.documents.display
 benchmark.collector.xhrs.display
 ```
