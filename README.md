@@ -30,9 +30,12 @@ bundle exec bin/ritsudo_cli --url=https://example.com --match="example.com" --ua
 require "bundler/setup"
 require "ritsudo"
 
+ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
 collector = Ritsudo::Collector.new(match: /example\.com/)
 benchmark = Ritsudo::Benchmark.new(collector: collector)
-benchmark.do("http:/www.example.com")
+benchmark.do("http:/www.example.com", driver_options: {
+              user_agent: ua
+             })
 
 benchmark.collector.documents.display
 benchmark.collector.xhrs.display
