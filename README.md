@@ -12,11 +12,12 @@ install it yourself as:
     $ gem install ritsudo
 
 ## Usage
+### CLI
 ```
 ritsudo -a=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
 ```
 
-
+### Ruby
 ```ruby
 #!/usr/bin/env ruby
 require "bundler/setup"
@@ -33,6 +34,7 @@ benchmark.collector.documents.display
 benchmark.collector.xhrs.display
 ```
 
+### Result
 ```
 [Misc]
   +------------------+--------+------+-----+-------+
