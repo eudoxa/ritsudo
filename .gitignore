@@ -3,4 +3,5 @@
 .byebug_history
 dev.rb
 Gemfile.lock
+pkg
 

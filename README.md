@@ -7,21 +7,13 @@ Also measure ajax requests.
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'ritsudo'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+install it yourself as:
 
     $ gem install ritsudo
 
 ## Usage
 ```
-bundle exec bin/ritsudo --url=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
+ritsudo -a=https://example.com -m "example.com" -u "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"
 ```
 
 
