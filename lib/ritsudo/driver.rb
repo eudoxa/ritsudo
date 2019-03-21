@@ -54,7 +54,6 @@ module Ritsudo
           manage.add_cookie(cookie.merge(domain: URI.parse(url).host))
         end
       end
-      puts @driver.manage.logs.get('performance').inspect
       @driver.get(url)
     end
 

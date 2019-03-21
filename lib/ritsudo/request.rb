@@ -26,7 +26,7 @@ module Ritsudo
     def url
       if _url = sent_message&.url
         url = URI.parse(_url)
-        "#{url.scheme}//#{url.host}#{url.path}"
+        url.to_s.sub(url.query.to_s, '')
       else
         nil
       end
