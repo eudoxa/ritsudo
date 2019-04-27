@@ -30,13 +30,13 @@ module Ritsudo
               max: values.max&.round(2),
               min: values.min&.round(2),
               count: values.size,
-              outsiders: all_values.size - values.size
+              outliters: all_values.size - values.size
             }
 
 
             table_data << result
           end
-          Formatador.display_table(table_data, [:name, :avg, :max, :min, :count, :outsiders])
+          Formatador.display_table(table_data, [:name, :avg, :max, :min, :count, :outliters])
         end
       end
     end
