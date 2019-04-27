@@ -14,17 +14,17 @@ module Ritsudo
 
     desc "benchmark URL", "benchmark"
     def benchmark()
-      match = class_options[:match] ? Regexp.new(class_options[:match]) : nil
+      match = options[:match] ? Regexp.new(options[:match]) : nil
       collector =  Ritsudo::Collector.new(match: match)
       benchmark = Ritsudo::Benchmark.new(collector: collector)
-      benchmark.do(class_options[:url],
-                   count: class_options[:count],
-                   sub_process_timeout: class_options[:sub_process_timeout],
+      benchmark.do(options[:url],
+                   count: options[:count],
+                   sub_process_timeout: options[:sub_process_timeout],
                    driver_options: {
-                     timeout: class_options[:timeout],
-                     wait_time: class_options[:wait_time],
-                     user_agent: class_options[:ua],
-                     cookies: class_options[:cookies]
+                     timeout: options[:timeout],
+                     wait_time: options[:wait_time],
+                     user_agent: options[:ua],
+                     cookies: options[:cookies]
                    }
                   )
       benchmark.collector.report
