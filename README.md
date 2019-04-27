@@ -71,6 +71,13 @@ Ritsudo requests 5 times: https://example.com
 ritsudo -a https://example.com/page -m "example.com" -C "hoge=fuga"
 ```
 
+### Remove outlier
+-r option removes outliders outside of (stdev * numeric) value.
+```
+ritsudo -a https://example.com/page -m "example.com" -s #{numeric}
+```
+
+
 #### Problem
 Headless chrome doesn't support to set cookies before access.
 So, Ritsudo accesses root path(e.g https://example.com) before each benchmark.

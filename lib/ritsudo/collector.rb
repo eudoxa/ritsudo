@@ -33,14 +33,14 @@ module Ritsudo
       @misc.add(group, name, value)
     end
 
-    def report
-      @misc.report
+    def report(outliters_stdev_multiple: nil)
+      @misc.report(outliters_stdev_multiple: outliters_stdev_multiple)
       puts ""
-      @documents.report
+      @documents.report(outliters_stdev_multiple: outliters_stdev_multiple)
       puts ""
-      @xhrs.report
+      @xhrs.report(outliters_stdev_multiple: outliters_stdev_multiple)
       puts ""
-      @scripts.report
+      @scripts.report(outliters_stdev_multiple: outliters_stdev_multiple)
       puts ""
     end
   end

@@ -11,6 +11,7 @@ module Ritsudo
     class_option :wait_time, default: 1, type: :numeric, aliases: ['-w']
     class_option :ua, type: :string, aliases: ['-u']
     class_option :match, type: :string, aliases: ['-m']
+    class_option :outliters_stdev_multiple, type: :numeric, aliases: ['-r']
 
     desc "benchmark URL", "benchmark"
     def benchmark()
@@ -27,7 +28,7 @@ module Ritsudo
                      cookies: options[:cookies]
                    }
                   )
-      benchmark.collector.report
+      benchmark.collector.report(outliters_stdev_multiple: options[:outliters_stdev_multiple])
     end
     tasks["benchmark"].options = self.class_options
   end
