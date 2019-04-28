@@ -25,8 +25,7 @@ ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.1
 collector = Ritsudo::Collector.new(match: /example\.com/)
 benchmark = Ritsudo::Benchmark.new(collector: collector)
 benchmark.do("https:/www.example.com", driver_options: { user_agent: ua })
-benchmark.collector.documents.display
-benchmark.collector.xhrs.display
+benchmark.collector.display
 ```
 
 ### Result
