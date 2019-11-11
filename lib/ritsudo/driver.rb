@@ -34,7 +34,10 @@ module Ritsudo
 
       Selenium::WebDriver.logger.output = logger_output
       Selenium::WebDriver.logger.level = logger_level
-      client = Selenium::WebDriver::Remote::Http::Default.new.tap { |c| c.read_timeout = timeout }
+      client = Selenium::WebDriver::Remote::Http::Default.new.tap do |client|
+        client.open_timeout = timeout
+        client.read_timeout = timeout
+      end
       driver_options = { options: options(args), desired_capabilities: caps, http_client: client }
       @driver = Selenium::WebDriver.for(:chrome, driver_options).tap do |d|
         d.manage.timeouts.implicit_wait = timeout
@@ -54,7 +57,12 @@ module Ritsudo
           manage.add_cookie(cookie.merge(domain: URI.parse(url).host))
         end
       end
-      @driver.get(url)
+      begin
+        @driver.get(url)
+      rescue Net::ReadTimeout => e
+        puts 'Fetching data too long. You can avoid this error by -t N option.'
+        raise e
+      end
     end
 
     def caps
